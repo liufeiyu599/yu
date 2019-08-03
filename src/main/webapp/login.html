@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/angular.min.js"></script>
+    <script>
+        var app = angular.module('user',[]);
+        app.controller('studentController',function ($scope,$http) {
+            $scope.login=function () {
+                $http.post('login',$scope.entity).success(
+                    function(response){
+                        if(response.success){
+                            //重新查询
+                            location.href = "studentList.html"
+                        }else{
+                            alert(response.message);
+                        }
+                    }
+                );
+            }
+        })
+    </script>
+</head>
+<body ng-app="user" ng-controller="bb">
+<div>
+    学号:<input type="text" placeholder="学号" name="name" ng-model="entity.name">
+</div>
+<div>
+    密码:<input type="password" placeholder="密码" name="pwd" ng-model="entity.pwd">
+</div>
+<div>
+    <button data-dismiss="modal6" aria-hidden="true" ng-click="login()" ng-click="entity={}">登录</button>
+</div>
+</body>
+</html>

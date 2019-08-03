@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:mysql:///012?serverTimezone=UTC
+    username: root
+    password: 599579
+
+
+mybatis:
+  mapper-locations: classpath:xml/*.xml
+  type-aliases-package: com.bw.mapper
